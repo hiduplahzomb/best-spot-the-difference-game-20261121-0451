@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Other Shore — Spot the Difference</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header id="topbar" class="topbar">
+  <div class="brand">
+    <span class="brand-mark">◐</span>
+    <span class="brand-name">The Other Shore</span>
+    <span class="brand-sub">spot the difference</span>
+  </div>
+  <div class="hud" id="hud">
+    <div class="hud-item"><span class="hud-label">Level</span><span id="levelName" class="hud-value">Harbour at Dusk</span></div>
+    <div class="hud-item"><span class="hud-label">Found</span><span id="counter" class="hud-value">0 / 8</span></div>
+    <div class="hud-item timer-item">
+      <span class="hud-label">Time</span><span id="timerText" class="hud-value">3:00</span>
+      <div class="timer-track"><div id="timerBar" class="timer-bar"></div></div>
+    </div>
+    <div class="hud-item"><span class="hud-label">Hints</span><span id="hints" class="hud-value hints">●●●</span></div>
+    <div class="hud-item"><span class="hud-label">Score</span><span id="score" class="hud-value">0</span></div>
+    <div class="hud-buttons">
+      <button id="hintBtn" class="btn small" type="button" title="Hint (H)">💡 Hint</button>
+      <button id="restartBtn" class="btn small" type="button" title="Restart level (R)">↻ Restart</button>
+      <button id="menuBtn" class="btn small" type="button" title="Back to menu (Esc)">☰ Menu</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="startScreen" class="start-screen">
+    <h1>The Other Shore</h1>
+    <p class="tagline">Two pictures of the same place. One of them changed.<br>Find every difference before the clock runs out.</p>
+    <div class="howto">
+      <div class="howto-item"><b>🖱️ Click</b> a difference in either picture to mark it</div>
+      <div class="howto-item"><b>⏱️ Wrong clicks</b> cost 25 points and 5 seconds</div>
+      <div class="howto-item"><b>💡 Hints</b> point at one difference — 3 per level (H)</div>
+    </div>
+    <h2>Choose a shore</h2>
+    <div id="levelCards" class="level-cards"></div>
+    <p class="foot-note">Every scene is drawn in code. No two shores are alike.</p>
+  </section>
+
+  <section id="playScreen" class="play-screen" hidden>
+    <div class="panels">
+      <figure class="panel">
+        <canvas id="panelLeft" width="560" height="560"></canvas>
+        <figcaption>The Shore</figcaption>
+      </figure>
+      <figure class="panel">
+        <canvas id="panelRight" width="560" height="560"></canvas>
+        <figcaption>The Other Shore</figcaption>
+      </figure>
+    </div>
+    <p class="hint-line">Click a difference in either picture — it is marked on both. <kbd>H</kbd> hint · <kbd>R</kbd> restart · <kbd>Esc</kbd> menu</p>
+  </section>
+
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <div id="overlay" class="overlay" hidden>
+    <div id="overlayCard" class="overlay-card"></div>
+  </div>
+</main>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
